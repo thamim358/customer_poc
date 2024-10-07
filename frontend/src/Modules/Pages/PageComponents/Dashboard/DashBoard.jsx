@@ -23,7 +23,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchFields = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/fetchfields', {
+        const response = await fetch('http://20.197.14.53:5000/api/fetchfields', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -66,7 +66,7 @@ const DashBoard = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/postCustomer', {
+      const response = await fetch('http://20.197.14.53:5000/api/postCustomer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ submitted_json: customer }),
