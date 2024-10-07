@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Radio, Select, Button, Spin , Row, Col } from 'antd';
+import { Form, Input, Radio, Select, Button, Spin } from 'antd';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 const { Option } = Select;
@@ -23,7 +23,7 @@ const DashBoard = () => {
   useEffect(() => {
     const fetchFields = async () => {
       try {
-        const response = await fetch('http://20.197.14.53:5000/api/fetchfields', {
+        const response = await fetch('http://127.0.0.1:5000/api/fetchfields', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -66,7 +66,7 @@ const DashBoard = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://20.197.14.53:5000/api/postCustomer', {
+      const response = await fetch('http://127.0.0.1:5000/api/postCustomer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ submitted_json: customer }),
@@ -82,7 +82,7 @@ const DashBoard = () => {
         CustomerPhone: '',
         CustomerGender: '',
         CustomerLanguages: [],
-        CustomerCountry: ''
+        CustomerCountry: '',
       });
       toast.success(`Customer added successfully!`); 
     } catch (error) {
@@ -117,11 +117,11 @@ console.log("customer.CustomerLanguages",customer.CustomerLanguages)
             );
           }
 
-          if (field.ControlType === 'RadioButton' && field.FieldName === 'CustomerGender') {
+          if (field.ControlType === 'RadioButton') {
             return (
-              <Form.Item key={field.FieldName} label="Customer Gender">
-                <Radio.Group name="CustomerGender" value={customer.CustomerGender} onChange={handleChange}>
-                  {genders.map((gender) => (
+              <Form.Item key={field.FieldName} label={field.FieldName}>
+                <Radio.Group name={field.FieldName} value={customer[field.FieldName]} onChange={handleChange}>
+                  {field.Values.split(',').map((gender) => ( // Assuming backend sends values as a comma-separated string
                     <Radio key={gender} value={gender}>{gender}</Radio>
                   ))}
                 </Radio.Group>
@@ -136,7 +136,7 @@ console.log("customer.CustomerLanguages",customer.CustomerLanguages)
                   className={`h-10 !rounded-xl shadow-lg`}
                   mode="multiple"
                   placeholder="Select languages"
-                  value={customer.CustomerLanguages}
+                  value={customer[field.FieldName]}
                   onChange={handleMultiSelectChange}
                 >
                   {languages.map((language) => (
@@ -149,17 +149,17 @@ console.log("customer.CustomerLanguages",customer.CustomerLanguages)
             );
           }
 
-          if (field.ControlType === 'DropDownList' && field.FieldName === 'CustomerCountry') {
+          if (field.ControlType === 'DropDownList') {
             return (
-              <Form.Item key={field.FieldName} label="Customer Country">
+              <Form.Item key={field.FieldName} label={field.FieldName}>
                 <Select
                   className='h-10 !rounded-xl shadow-lg'
                   placeholder="Select country"
-                  value={customer.CustomerCountry}
+                  value={customer[field.FieldName]}
                   onChange={(value) => setCustomer((prev) => ({ ...prev, CustomerCountry: value }))}
                 >
                   <Option value="">Select</Option>
-                  {countries.map((country) => (
+                  {field.Values.split(',').map((country) => ( // Assuming backend sends values as a comma-separated string
                     <Option key={country} value={country}>
                       {country}
                     </Option>

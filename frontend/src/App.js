@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route ,Navigate  } from "react-router-dom";
 import { MasterLayout } from "./Modules/Pages/MasterLayout";
-import DashBoard from "./Modules/Pages/PageComponents/Dashboard/DashBoard";
 
 const App = () => {
   return (
