@@ -1,4 +1,4 @@
-import { ScheduleOutlined ,SettingOutlined} from "@ant-design/icons";
+import { ScheduleOutlined} from "@ant-design/icons";
 
 export const DashboardSideMenus = () => {
   const menus = [

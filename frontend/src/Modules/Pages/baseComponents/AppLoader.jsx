@@ -1,12 +1,8 @@
 import React from 'react'
-import { CarePlanLoader, Logo } from '.'
+import { CarePlanLoader} from '.'
 import { Bars } from 'react-loader-spinner'
 
-export const AppLoaderPage = (
-    {
-
-    }
-) => {
+export const AppLoaderPage = () => {
     return (
         <div className='loader-wrapper flex flex-col items-center justify-center w-[100vw] h-[100vh]'>
             <CarePlanLoader />

@@ -20,7 +20,7 @@ export const SingleSelect = ({
     bordered,
     fieldIndex,
 }) => {
-    const selectClass = classNames("single-select", { error });
+    // const selectClass = classNames("single-select", { error });
     const formik = useFormikContext();
     return (
         <Field name={name}>

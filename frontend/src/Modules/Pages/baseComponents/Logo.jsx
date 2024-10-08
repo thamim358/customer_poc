@@ -1,6 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Text } from '.';
 import { classNames } from '../../../utilities';
 
 export const Logo = (
@@ -11,7 +9,6 @@ export const Logo = (
         onClick,
     }
 ) => {
-    const navigate = useNavigate();
     return (
         <div
             className={classNames('logo flex items-center justify-center', className ? className : '')}

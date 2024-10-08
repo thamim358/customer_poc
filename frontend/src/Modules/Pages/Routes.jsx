@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import DashBoard from "./PageComponents/Dashboard/DashBoard"
-import Settings from "./PageComponents/Dashborad2/Settings";
+// import Settings from "./PageComponents/Dashborad2/Settings";
 
 
 const DashboardRoutes = () => {

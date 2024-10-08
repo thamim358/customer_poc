@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Header, Text } from "../baseComponents";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Text } from "../baseComponents";
+import { useLocation } from "react-router-dom";
 
 
 const TopNavbar = ({ handleToggleSidebar }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [pageTitle, setPageTitle] = useState("");
 
   useEffect(() => {
@@ -16,7 +15,6 @@ const TopNavbar = ({ handleToggleSidebar }) => {
     setPageTitle(`${titleObject[location?.pathname] || ""} `);
   }, [location]);
 
-  const isMobileView = window.innerWidth < 1260;
   console.log("page", pageTitle)
   return (
     <nav className="top-navbar mx-4 md:mx-10 py-3 xl:ml-72 sticky top-0 left-0 z-[98] flex justify-between items-center bg-gray-100">

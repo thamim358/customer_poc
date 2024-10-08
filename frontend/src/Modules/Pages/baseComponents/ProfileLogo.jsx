@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Image } from ".";
-import { useSelector } from "react-redux";
 import { classNames, profileName } from "../../../utilities";
 
 export const ProfileLogo = ({

@@ -1,6 +1,6 @@
 import React from "react";
 import { Field } from "formik";
-import { Select, TreeSelect } from "antd";
+import { TreeSelect } from "antd";
 import { Text } from ".";
 
 export const TreeSelectDropdown = ({

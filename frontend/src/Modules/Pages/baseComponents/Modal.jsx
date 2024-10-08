@@ -1,5 +1,5 @@
 import { Modal, Button as AntButton, Checkbox, Radio, Switch } from "antd";
-import { Field, FieldArray, Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import React, { Fragment } from "react";
 import { object } from "yup";
 import { Button, Text } from ".";

@@ -2,7 +2,7 @@ import { DatePicker } from "antd";
 import { Field } from "formik";
 import moment from "moment";
 
-const { RangePicker } = DatePicker;
+// const { RangePicker } = DatePicker;
 export const DateRangePicker = ({
     name,
     disableDate,

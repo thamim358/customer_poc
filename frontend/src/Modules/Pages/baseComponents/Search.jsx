@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AutoComplete, Input } from 'antd';
+import { AutoComplete } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 export const CustomSearch = ({ field, form, patientNames, onNameSelect, onClearSearch, value }) => {
